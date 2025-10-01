@@ -1,0 +1,288 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #ff6f00; /* Pumpkin Orange */
+    --secondary-color: #1a0033; /* Deep Purple */
+    --background-color: #0c001f;
+    --text-color: #e0e0e0;
+    --glass-bg: rgba(26, 0, 51, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+#footnote {
+    font-family: 'Poppins';
+    font-weight: bolder;
+}
+
+h1, h2, h3 {
+    font-family: 'Creepster', cursive;
+    letter-spacing: 3px;
+    color: var(--primary-color);
+}
+
+/* --- Parallax Hero Section --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1508361663395-92d646342377?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Simple parallax effect */
+    filter: brightness(0.6) sepia(0.3);
+    z-index: -1;
+}
+
+.hero-content {
+    z-index: 1;
+    padding: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.creepy-text {
+    font-size: 5rem;
+    animation: flicker 4s infinite alternate;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 111, 0, 0.4);
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 111, 0, 0.6);
+}
+
+/* --- Floating Ghosts Animation --- */
+.ghost {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50% 50% 0 0;
+    opacity: 0.5;
+    animation: float 15s infinite ease-in-out;
+    z-index: 0;
+}
+.ghost::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    filter: blur(5px);
+}
+
+.ghost1 {
+    top: 20%;
+    left: 10%;
+    animation-duration: 20s;
+}
+
+.ghost2 {
+    top: 60%;
+    left: 80%;
+    animation-delay: 5s;
+    animation-duration: 25s;
+}
+
+
+/* --- Content Sections --- */
+.content-section {
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+/* --- Glassmorphism Cards --- */
+.glass-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+}
+
+.glass-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+/* --- Gallery Section --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease-out;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    font-family: 'Creepster', cursive;
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--secondary-color);
+    border-top: 2px solid var(--primary-color);
+}
+
+/* --- Animations --- */
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px var(--primary-color),
+        0 0 80px var(--primary-color),
+        0 0 90px var(--primary-color),
+        0 0 100px var(--primary-color),
+        0 0 150px var(--primary-color);
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); }
+    50% { transform: translateY(-50px) translateX(20px) rotate(10deg); }
+    100% { transform: translateY(0) translateX(0) rotate(0deg); }
+}
+
+/* --- On-Scroll Animation --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 768px) {
+    .creepy-text {
+        font-size: 3rem;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
