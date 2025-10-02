@@ -286,3 +286,67 @@ footer {
         font-size: 2.5rem;
     }
 }
+
+/* --- Countdown Section --- */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.time-box {
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 20px 30px;
+    min-width: 100px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 111, 0, 0.7);
+}
+
+.time-box span {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    display: block;
+}
+
+.time-box p {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-family: 'Creepster', cursive;
+    margin-top: 5px;
+}
+
+/* --- Countdown Responsive Design --- */
+@media (max-width: 768px) {
+    .time-box {
+        min-width: 70px;
+        padding: 10px 15px;
+    }
+
+    .time-box span {
+        font-size: 2rem;
+    }
+
+    .time-box p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .time-box {
+        min-width: 55px;
+        padding: 8px 10px;
+    }
+
+    .time-box span {
+        font-size: 1.5rem;
+    }
+
+    .time-box p {
+        font-size: 0.8rem;
+    }
+}
